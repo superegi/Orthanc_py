@@ -1,0 +1,13 @@
+FROM jodogne/orthanc-python@sha256:f12b746643876389e43e31872fbe1ece8837b9393729820270186a26427a4f69
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends gettext-base jq \
+ && rm -rf /var/lib/apt/lists/*
+
+# La plantilla base via build context 
+COPY config/orthanc.tpl.json /orthanc.tpl.json
+COPY scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+VOLUME ["/var/lib/orthanc/db"]
+ENTRYPOINT ["/entrypoint.sh"]

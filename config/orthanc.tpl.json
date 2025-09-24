@@ -1,0 +1,30 @@
+{
+  "Name": "${ORTHANC_NAME}",
+  "LogFile": "/var/log/orthanc.log",
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "IndexDirectory": "/var/lib/orthanc/db",
+  "HttpServerEnabled": true,
+  "HttpPort": 8042,
+  "HttpsEnabled": false,
+  "RemoteAccessAllowed": true,
+  "DicomServerEnabled": true,
+  "DicomPort": 4242,
+  "DicomAet": "${ORTHANC_AET}",
+  "MaximumAssociations": ${ORTHANC_MAX_ASSOC},
+  "AuthenticationEnabled": true,
+  "RegisteredUsers": {
+    "${ORTHANC_USERNAME}": "${ORTHANC_PASSWORD}"
+  },
+  "DicomScuTimeout": 10,
+  "DefaultEncoding": "Latin1",
+  "Plugins": [ "/usr/local/share/orthanc/plugins" ],
+  "DicomWeb": {
+    "Enable": true,
+    "Root": "/dicom-web/",
+    "EnableWado": true,
+    "QidoCaseSensitive": false
+  },
+  "HttpDescribeErrors": true,
+  "MetricsEnabled": true,
+  "StoreDicom": true
+}

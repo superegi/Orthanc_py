@@ -1,0 +1,25 @@
+services:
+  orthanc:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    image: orthanc-python-local:1.0   # nombre local de TU build (no uses el digest aquí)
+    container_name: ${COMPOSE_PROJECT_NAME:-orthanc}-orthanc
+
+    env_file:
+      - ./env
+
+    ports:
+      - "${DICOM_PORT:-4242}:4242"
+      - "${HTTP_PORT:-8042}:8042"
+
+    volumes:
+      - ./config:/config:ro                    # connections.local.json vive aquí
+      - ./scripts/entrypoint.sh:/entrypoint.sh:ro
+      - ./python/plugins:/python/plugins:ro
+      - ./storage:/var/lib/orthanc/db
+      - ./worklists:/worklists-db
+      - ./logs:/var/log
+
+    entrypoint: ["/entrypoint.sh"]
+    restart: unless-stopped

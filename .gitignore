@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+storage/
+data/
+db/
+WebViewerCache/
+logs/
+**/*.db
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+**/.docker-cache/
+
+
+config/connections.local.json
