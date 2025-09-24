@@ -31,7 +31,7 @@ como dentro del contenedor (Orthanc).
 
 ---
 
-## 🚀 Pasos para construir desde cero
+## Pasos para construir desde cero
 
 ### 1) Clonar el repositorio
 ```bash
@@ -108,7 +108,7 @@ curl -u user:1234 http://localhost:${HTTP_PORT}/dicom-web/servers | jq .
 
 ---
 
-## 🧩 Detalles técnicos
+## Detalles técnicos
 
 - **Imagen base fijada por digest** (reproducible): `jodogne/orthanc-python@sha256:<DIGEST>` (ver `docker/Dockerfile.python`).
 - **Plugins**: la imagen trae `.so` en `/usr/local/share/orthanc/plugins`. En `orthanc.tpl.json` usamos:
@@ -123,7 +123,7 @@ curl -u user:1234 http://localhost:${HTTP_PORT}/dicom-web/servers | jq .
 
 ---
 
-## 🧯 Troubleshooting rápido
+## Troubleshooting rápido
 
 - **No responde `http://localhost:${HTTP_PORT}`**
   Verifica el mapeo de puertos:
