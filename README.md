@@ -35,7 +35,7 @@ como dentro del contenedor (Orthanc).
 
 ### 1) Clonar el repositorio
 ```bash
-git clone <URL_DEL_REPO> orthanc-python
+git clone https://github.com/superegi/Orthanc_py/ orthanc-python
 cd orthanc-python
 ```
 
